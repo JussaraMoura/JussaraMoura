@@ -2,7 +2,7 @@
 
 **Projetos e Demandas em TI**
 
-Me chamo Jussara Pinto Moura, tenho 51 anos e sou natural de Belo Horizonte.👋
+Me chamo Jussara Pinto Moura, Sou analista de dados, processos e negócios e sou natural de Belo Horizonte.👋
 
 
 ### 🤖 Linguagens e Tecnologias
