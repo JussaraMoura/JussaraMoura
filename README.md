@@ -1,8 +1,8 @@
 ## DRE Pipeline
 
 Pipeline de dados para extração, tratamento, armazenamento e análise de Demonstrações de Resultado do Exercício (DRE) a partir de arquivos PDF.
-### Objetivo: Automatizar o processo de obtenção e preparação de dados financeiros, substituindo transformações manuais realizadas no Power Query por uma arquitetura baseada em Python, PostgreSQL e Power BI.
-### Arquitetura
+#### Objetivo: Automatizar o processo de obtenção e preparação de dados financeiros, substituindo transformações manuais realizadas no Power Query por uma arquitetura baseada em Python, PostgreSQL e Power BI.
+#### Arquitetura
 
                     PDF
                      ↓
@@ -16,7 +16,7 @@ Pipeline de dados para extração, tratamento, armazenamento e análise de Demon
                      ↓
                     Power BI
 
-### Tecnologias Utilizadas
+#### Tecnologias Utilizadas
 
 * Python
 * Pandas
@@ -25,8 +25,8 @@ Pipeline de dados para extração, tratamento, armazenamento e análise de Demon
 * Power BI
 * GitHub
 
-## Camadas de Dados
-### RAW: Armazena os dados exatamente como extraídos do PDF.
+### Camadas de Dados
+#### RAW: Armazena os dados exatamente como extraídos do PDF.
 ### STAGING: Responsável pela padronização e transformação dos dados.
 ### DW: Contém as tabelas dimensionais e fatos utilizadas pelo Power BI.
 
