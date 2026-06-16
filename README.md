@@ -1,137 +1,49 @@
-# 👩🏻‍💻 Jussara Moura
+# DRE Pipeline
 
-**Projetos e Demandas em TI**
+Pipeline de dados para extração, tratamento, armazenamento e análise de Demonstrações de Resultado do Exercício (DRE) a partir de arquivos PDF.
+## Objetivo: Automatizar o processo de obtenção e preparação de dados financeiros, substituindo transformações manuais realizadas no Power Query por uma arquitetura baseada em Python, PostgreSQL e Power BI.
+## Arquitetura
 
-Me chamo Jussara Pinto Moura, Sou analista de dados, processos e negócios e sou natural de Belo Horizonte.👋
+                    PDF
+                     ↓
+                    Python
+                     ↓
+                    RAW
+                     ↓
+                    STAGING
+                     ↓
+                    DATA WAREHOUSE
+                     ↓
+                    Power BI
 
+## Tecnologias Utilizadas
 
-### 🤖 Linguagens e Tecnologias
+* Python
+* Pandas
+* PostgreSQL (Neon)
+* SQLAlchemy
+* Power BI
+* GitHub
 
-<img 
-    align="left" 
-    alt="HTML"
-    title="HTML" 
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="CSS" 
-    title="CSS"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="JavaScript" 
-    title="JavaScript"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="TypeScript"
-    title="TypeScript" 
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="React"
-    title="React" 
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Next.js" 
-    title="Next.js"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Bootstrap"
-    title="Bootstrap" 
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Tailwind" 
-    title="Tailwind"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="SASS" 
-    title="SASS"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="PHP" 
-    title="PHP"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Laravel" 
-    title="Laravel"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="JQuery" 
-    title="JQuery"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Git" 
-    title="Git"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Python" 
-    title="Python"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" 
-/>
+## Camadas de Dados
+### RAW: Armazena os dados exatamente como extraídos do PDF.
+### STAGING: Responsável pela padronização e transformação dos dados.
+### DW: Contém as tabelas dimensionais e fatos utilizadas pelo Power BI.
 
-<br/>
-<br/>
+## Roadmap
+### Fase 1 - Infraestrutura
+* [x] Criação do projeto no Neon
+* [x] Criação dos schemas RAW, STAGING e DW
+### Fase 2 - Extração
+* [ ] Leitura automática do PDF
+* [ ] Extração da DRE
+### Fase 3 - Transformação
+* [ ] Tratamento dos dados
+* [ ] Padronização das contas
+### Fase 4 - Data Warehouse
+* [ ] Criação das dimensões
+* [ ] Criação da tabela fato
+### Fase 5 - Analytics
+* [ ] Integração com Power BI (Dashboard financeiro já construído)
 
-### Tecnologias
-
-<p>
-
-<img 
-      align="left" 
-      alt="GitHub Stats" 
-      height="200" 
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=larissakich&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9" 
-  />
-
-</p>
+## Status: 🟢 Em desenvolvimento
