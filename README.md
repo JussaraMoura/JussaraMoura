@@ -1,50 +1,75 @@
 ## DRE Pipeline
 
-Pipeline de dados para extração, tratamento, armazenamento e análise de Demonstrações de Resultado do Exercício (DRE) a partir de arquivos PDF.
+Este projeto surgiu como evolução do Dashboard Financeiro DRE, desenvolvido inicialmente de forma integral no Power BI.
 
-Objetivo: Automatizar o processo de obtenção e preparação de dados financeiros, substituindo transformações manuais realizadas no Power Query por uma arquitetura baseada em Python, PostgreSQL e Power BI.
-Arquitetura
+O objetivo desta nova etapa é construir uma pipeline de dados para extração, tratamento, armazenamento e análise de Demonstrações de Resultado do Exercício (DRE) a partir de arquivos PDF.
 
-                    PDF
-                     ↓
-                    Python
-                     ↓
-                    RAW
-                     ↓
-                    STAGING
-                     ↓
-                    DATA WAREHOUSE
-                     ↓
-                    Power BI
+### Arquitetura da Solução
 
-Tecnologias Utilizadas
+```text
+PDF
+ ↓
+Python
+ ↓
+RAW
+ ↓
+STAGING
+ ↓
+DW
+ ↓
+Power BI
+```
 
-* Python
-* Pandas
-* PostgreSQL (Neon)
-* SQLAlchemy
-* Power BI
-* GitHub
+### Tecnologias Utilizadas
 
-Camadas de Dados:
-  RAW: Armazena os dados exatamente como extraídos do PDF.
-  STAGING: Responsável pela padronização e transformação dos dados.
-  DW: Contém as tabelas dimensionais e fatos utilizadas pelo Power BI.
+- Python
+- Pandas
+- PostgreSQL (Neon)
+- SQLAlchemy
+- Power BI
+- GitHub
 
-Roadmap
-  Fase 1 - Infraestrutura
-  * [x] Criação do projeto no Neon
-  * [x] Criação dos schemas RAW, STAGING e DW
-  Fase 2 - Extração
-  * [ ] Leitura automática do PDF
-  * [ ] Extração da DRE
-  Fase 3 - Transformação
-  * [ ] Tratamento dos dados
-  * [ ] Padronização das contas
-  Fase 4 - Data Warehouse
-  * [ ] Criação das dimensões
-  * [ ] Criação da tabela fato
-  Fase 5 - Analytics
-  * [ ] Integração com Power BI (Dashboard financeiro já construído)
+### Camadas de Dados
 
-Status: 🟢Em desenvolvimento
+#### RAW
+
+Armazena os dados exatamente como extraídos dos arquivos PDF, sem qualquer transformação.
+
+#### STAGING
+
+Responsável pela limpeza, padronização e transformação dos dados, preparando-os para a modelagem analítica.
+
+#### DW
+
+Camada analítica responsável por armazenar dimensões e fatos utilizados na construção de indicadores e dashboards no Power BI.
+
+### Roadmap
+
+#### Fase 1 - Infraestrutura
+
+- [x] Criação do projeto no Neon
+- [x] Criação dos schemas RAW, STAGING e DW
+
+#### Fase 2 - Extração
+
+- [ ] Leitura automática do PDF
+- [ ] Extração da DRE
+
+#### Fase 3 - Transformação
+
+- [ ] Tratamento dos dados
+- [ ] Padronização das contas
+
+#### Fase 4 - Data Warehouse
+
+- [ ] Criação das dimensões
+- [ ] Criação da tabela fato
+
+#### Fase 5 - Analytics
+
+- [ ] Integração com Power BI
+- [x] Dashboard financeiro desenvolvido
+
+### Status
+
+🟢 Em desenvolvimento
