@@ -1,10 +1,10 @@
-#### DRE Pipeline
+DRE Pipeline
 
 Este projeto surgiu como evolução do Dashboard Financeiro DRE, desenvolvido inicialmente de forma integral no Power BI.
 
 O objetivo desta nova etapa é construir uma pipeline de dados para extração, tratamento, armazenamento e análise de Demonstrações de Resultado do Exercício (DRE) a partir de arquivos PDF.
 
-##### Arquitetura da Solução
+Arquitetura da Solução
 
 ```text
 PDF
@@ -20,7 +20,7 @@ DW
 Power BI
 ```
 
-##### Tecnologias Utilizadas
+Tecnologias Utilizadas
 
 - Python
 - Pandas
@@ -29,23 +29,23 @@ Power BI
 - Power BI
 - GitHub
 
-##### Camadas de Dados
+Camadas de Dados
 
-###### RAW
+RAW
 
 Armazena os dados exatamente como extraídos dos arquivos PDF, sem qualquer transformação.
 
-###### STAGING
+STAGING
 
 Responsável pela limpeza, padronização e transformação dos dados, preparando-os para a modelagem analítica.
 
-###### DW
+DW
 
 Camada analítica responsável por armazenar dimensões e fatos utilizados na construção de indicadores e dashboards no Power BI.
 
-##### Roadmap
+Roadmap
 
-###### Fase 1 - Infraestrutura
+Fase 1 - Infraestrutura
 
 - [x] Criação do projeto no Neon
 - [x] Criação dos schemas RAW, STAGING e DW
