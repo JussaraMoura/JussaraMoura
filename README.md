@@ -1,10 +1,10 @@
-##### DRE Pipeline
+#### DRE Pipeline
 
 Este projeto surgiu como evolução do Dashboard Financeiro DRE, desenvolvido inicialmente de forma integral no Power BI.
 
 O objetivo desta nova etapa é construir uma pipeline de dados para extração, tratamento, armazenamento e análise de Demonstrações de Resultado do Exercício (DRE) a partir de arquivos PDF.
 
-### Arquitetura da Solução
+##### Arquitetura da Solução
 
 ```text
 PDF
@@ -20,7 +20,7 @@ DW
 Power BI
 ```
 
-#### Tecnologias Utilizadas
+##### Tecnologias Utilizadas
 
 - Python
 - Pandas
