@@ -7,17 +7,17 @@ O objetivo desta nova etapa é construir uma pipeline de dados para extração, 
 Arquitetura da Solução
 
 ```text
-PDF
- ↓
-Python
- ↓
-RAW
- ↓
-STAGING
- ↓
-DW
- ↓
-Power BI
+          PDF
+           ↓
+          Python
+           ↓
+          RAW
+           ↓
+          STAGING
+           ↓
+          DW
+           ↓
+          Power BI
 ```
 
 Tecnologias Utilizadas
