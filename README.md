@@ -43,33 +43,30 @@ DW
 
 Camada analítica responsável por armazenar dimensões e fatos utilizados na construção de indicadores e dashboards no Power BI.
 
-Roadmap
+## 🚀 Roadmap
 
-Fase 1 - Infraestrutura
+### Fase 1 - Infraestrutura
+- [x] Criação do projeto no Neon  
+- [x] Criação dos schemas RAW, STAGING e DW  
 
-- [x] Criação do projeto no Neon
-- [x] Criação dos schemas RAW, STAGING e DW
+### Fase 2 - Extração
+- [x] Leitura automática do PDF  
+- [x] Extração da DRE  
 
-#### Fase 2 - Extração
+### Fase 3 - Transformação
+- [x] Tratamento dos dados  
+- [x] Padronização das contas  
 
-- [ ] Leitura automática do PDF
-- [ ] Extração da DRE
+### Fase 4 - Data Warehouse
+- [x] Criação das dimensões  
+- [x] Criação da tabela fato  
 
-#### Fase 3 - Transformação
+### Fase 5 - Analytics
+- [x] Integração com Power BI  
+- [x] Dashboard financeiro desenvolvido  
 
-- [ ] Tratamento dos dados
-- [ ] Padronização das contas
+---
 
-#### Fase 4 - Data Warehouse
+## 📊 Status
 
-- [ ] Criação das dimensões
-- [ ] Criação da tabela fato
-
-#### Fase 5 - Analytics
-
-- [ ] Integração com Power BI
-- [x] Dashboard financeiro desenvolvido
-
-### Status
-
-🟢 Em desenvolvimento
+🟢 Concluído (versão inicial funcional da pipeline)
