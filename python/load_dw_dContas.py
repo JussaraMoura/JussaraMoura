@@ -14,7 +14,7 @@ try:
     cursor.execute("TRUNCATE TABLE dw.dcontas RESTART IDENTITY")
 
     # =====================================================
-    # CARGA dContas (REGRA FINAL CORRETA)
+    # CARGA dContas CORRIGIDA
     # =====================================================
     insert_sql = """
     INSERT INTO dw.dcontas (
@@ -27,54 +27,55 @@ try:
     SELECT DISTINCT
         codigo_conta AS cod_conta_original,
 
-        -- =========================
-        -- COD_CONTA (REGRA FINAL)
-        -- =========================
+        -- ====================================================================
+        -- 1. CORREÇÃO DO COD_CONTA
+        -- ====================================================================
+        -- Se for conta de 2 níveis (3.01, 3.02, 3.08), fixamos o '.01' no final.
+        -- Se já for de 3 níveis (3.04.01), apenas removemos o '3.' inicial.
         CASE
             WHEN array_length(string_to_array(codigo_conta, '.'), 1) = 2
-                THEN split_part(codigo_conta, '.', 2) || '.' || split_part(codigo_conta, '.', 2)
-
+                THEN split_part(codigo_conta, '.', 2) || '.01'
             ELSE
                 split_part(codigo_conta, '.', 2) || '.' || split_part(codigo_conta, '.', 3)
         END AS cod_conta,
 
-        -- =========================
-        -- GRUPO
-        -- =========================
+        -- ====================================================================
+        -- 2. GRUPO
+        -- ====================================================================
         split_part(codigo_conta, '.', 2) AS cod_grupo,
 
         descricao AS desc_conta,
 
-        -- =========================
-        -- DESCRIÇÃO FORMATADA
-        -- =========================
+        -- ====================================================================
+        -- 3. DESCRIÇÃO FORMATADA (Corrigido para não usar LIKE generalizado)
+        -- ====================================================================
         CASE
-            WHEN codigo_conta = '3.01'
-                THEN '(+) Receita de Venda de Bens e/ou Serviços'
-
-            WHEN codigo_conta = '3.02'
-                THEN '(-) Custo dos Bens e/ou Serviços Vendidos'
-
-            WHEN codigo_conta LIKE '3.04%'
-                THEN 'Despesas com Vendas / Operacionais'
-
-            WHEN codigo_conta LIKE '3.06%'
-                THEN 'Resultado Financeiro'
-
-            WHEN codigo_conta = '3.08'
-                THEN '(-) IR/CS sobre o Lucro'
-
+            WHEN codigo_conta = '3.01' THEN '(+) Receita de Venda de Bens e/ou Serviços'
+            WHEN codigo_conta = '3.02' THEN '(-) Custo dos Bens e/ou Serviços Vendidos'
+            WHEN codigo_conta = '3.08' THEN '(-) Imposto de Renda e Contribuição Social sobre o Lucro'
             ELSE descricao
         END AS desc_conta_formatada
 
     FROM staging.staging_dre
-    WHERE split_part(codigo_conta, '.', 2) IN ('01','02','04','06','08');
+    WHERE 
+        -- Filtra apenas os grupos desejados
+        split_part(codigo_conta, '.', 2) IN ('01','02','04','06','08')
+        
+        -- ====================================================================
+        -- 4. FILTRO DE LINHAS ANALÍTICAS (Não calculáveis no Power BI)
+        -- ====================================================================
+        -- Remove as contas agregadoras (3.04, 3.06) que confundem o relacionamento.
+        -- Só deixa passar contas com 3 partes (ex: 3.04.01) OU as contas base (3.01, 3.02, 3.08)
+        AND (
+            array_length(string_to_array(codigo_conta, '.'), 1) = 3 
+            OR codigo_conta IN ('3.01', '3.02', '3.08')
+        );
     """
 
     cursor.execute(insert_sql)
     conn.commit()
 
-    print("dContas carregado com regra final correta 🚀")
+    print("dContas carregado com sucesso e corrigido! 🚀")
 
 except Exception as e:
     conn.rollback()
